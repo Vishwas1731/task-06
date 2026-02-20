@@ -1,1 +1,45 @@
 
+
+#query-01
+SELECT 
+    EXTRACT(MONTH FROM order_date) AS month,
+    SUM(amount) AS total_revenue,
+    COUNT(DISTINCT order_id) AS order_volume
+FROM orders
+GROUP BY EXTRACT(MONTH FROM order_date)
+ORDER BY month;
+
+#query-02
+SELECT 
+    EXTRACT(YEAR FROM order_date) AS year,
+    EXTRACT(MONTH FROM order_date) AS month,
+    SUM(amount) AS total_revenue,
+    COUNT(DISTINCT order_id) AS order_volume
+FROM orders
+GROUP BY year, month
+ORDER BY year, month;
+
+#query-03
+SELECT 
+    EXTRACT(MONTH FROM order_date) AS month,
+    SUM(amount) AS total_revenue
+FROM orders
+GROUP BY EXTRACT(MONTH FROM order_date)
+ORDER BY month;
+
+#query-04
+SELECT 
+    EXTRACT(MONTH FROM order_date) AS month,
+    COUNT(DISTINCT order_id) AS order_volume
+FROM orders
+GROUP BY EXTRACT(MONTH FROM order_date)
+ORDER BY month;
+
+#query-06
+SELECT 
+    EXTRACT(MONTH FROM order_date) AS month,
+    SUM(amount) AS total_revenue
+FROM orders
+GROUP BY EXTRACT(MONTH FROM order_date)
+ORDER BY total_revenue DESC;
+
